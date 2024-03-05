@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export const Header = () => {
@@ -11,11 +12,31 @@ export const Header = () => {
         <Image src="/mc-logo.svg" alt="Home" width="40" height="40" priority />
         <nav>
           <ul className="flex items-center gap-4">
-            <li className={menuStyles}>Home</li>
-            <li className={menuStyles}>Sign In</li>
-            <li className={menuStyles}>Sign Out</li>
-            <li className={menuStyles}>Server</li>
-            <li className={menuStyles}>Client</li>
+            <li className="list-none flex">
+              <Link className={menuStyles} href={"/"}>
+                Home
+              </Link>
+            </li>
+            <li className="list-none flex">
+              <Link className={menuStyles} href={"/"}>
+                Sign In
+              </Link>
+            </li>
+            <li className="list-none flex">
+              <Link className={menuStyles} href={"/"}>
+                Sign Out
+              </Link>
+            </li>
+            <li className="list-none flex">
+              <Link className={menuStyles} href={"/server"}>
+                Server
+              </Link>
+            </li>
+            <li className="list-none flex">
+              <Link className={menuStyles} href={"/client"}>
+                Client
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
