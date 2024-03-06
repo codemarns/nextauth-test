@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { Header } from "@/common/header";
+import AuthProvider from "@/app/context/AuthProvider";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <Header />
-        <main className="min-h-screen w-full pt-16 px-4 sm:px-8">
-          <div className="h-auto w-full max-w-7xl mx-auto py-4">{children}</div>
-        </main>
+        <AuthProvider>
+          <Header />
+          <main className="min-h-screen w-full pt-16 px-4 sm:px-8">
+            <div className="h-auto w-full max-w-7xl mx-auto py-4 flex justify-center">
+              {children}
+            </div>
+          </main>
+        </AuthProvider>
       </body>
     </html>
   );
